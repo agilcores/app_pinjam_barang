@@ -1,0 +1,34 @@
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:wght@300&family=Montserrat:wght@200&display=swap');
+
+
+
+/* sidebar style */
+.sidebar
+{
+    height: 100vh;
+}
+
+.side-text p
+{
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.images
+{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    background-color: white;
+    background-image: url('https://i.pinimg.com/736x/90/29/a2/9029a2eafc1b93fdb11241b57ba56d38.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.fa-plus
+{
+    color: #68B984;
+}
+
+
