@@ -2,10 +2,14 @@
 
 session_start();
 
+require_once __DIR__ . "./service/view_pinjaman.php";
+
 if(!isset($_SESSION["login"]))
 {
     header("Location: login.php");
 }
+
+
 
 ?>
 
@@ -45,11 +49,11 @@ if(!isset($_SESSION["login"]))
                     <div class="text-center side-text">
                         <h3 class="text-light mt-3">halo admin</h3>
 
-                        <p class="text-light mt-3">Jumlah Pinjam : 3</p>
+                        <p class="text-light mt-3">Jumlah Pinjam : <?= viewPinjam(); ?></p>
                         <hr style="background-color: white">
-                        <p class="text-light mt-3">Jumlah Kembali : 2</p>
+                        <p class="text-light mt-3">Jumlah Kembali : <?= viewKembali(); ?></p>
                         <hr style="background-color: white">
-                        <p class="text-light mt-3">Belum Kembali : 1</p>
+                        <p class="text-light mt-3">Belum Kembali : <?= viewBelumKembali(); ?></p>
                         <hr style="background-color: white">
                     </div>
                 </div>
@@ -74,33 +78,18 @@ if(!isset($_SESSION["login"]))
                             </tr>
                         </thead>
                         <tbody class="text-center">
+                            <?php foreach($viewData as $views) : ?>
                             <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Mikrotik RB-750</td>
-                            <td>222112</td>
-                            <td>20-02-2022</td>
-                            <td>kembali</td>
-                            <td>21-02-2022</td>
+                            <th scope="row"><?= $views["id"] ?></th>
+                            <td><?= $views["nama"] ?></td>
+                            <td><?= $views["jenis_barang"] ?></td>
+                            <td><?= $views["no_seri"] ?></td>
+                            <td><?= $views["tanggal_pinjam"] ?></td>
+                            <td><?= $views["status"] ?></td>
+                            <td><?= $views["tanggal_kembali"] ?></td>
                             </tr>
-
-                            <th scope="row">2</th>
-                            <td>Zulenza</td>
-                            <td>Mikrotik RB-750</td>
-                            <td>222112</td>
-                            <td>20-02-2022</td>
-                            <td>Di Pinjam</td>
-                            <td>21-02-2022</td>
-                            </tr>
-
-                            <th scope="row">3</th>
-                            <td>Agus Rosyid</td>
-                            <td>Mikrotik RB-750</td>
-                            <td>222112</td>
-                            <td>20-02-2022</td>
-                            <td>kembali</td>
-                            <td>21-02-2022</td>
-                            </tr>
+                            <?php endforeach ?>
+                            
                         </tbody>
                         </table>
                 </div>
