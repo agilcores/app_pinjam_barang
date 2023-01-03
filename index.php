@@ -77,8 +77,8 @@ if(!isset($_SESSION["login"]))
                             <th scope="col">Tanggal Kembali</th>
                             </tr>
                         </thead>
+                        <?php foreach($viewData as $views) : ?>
                         <tbody class="text-center">
-                            <?php foreach($viewData as $views) : ?>
                             <tr>
                             <th scope="row"><?= $views["id"] ?></th>
                             <td><?= $views["nama"] ?></td>
@@ -88,9 +88,8 @@ if(!isset($_SESSION["login"]))
                             <td><?= $views["status"] ?></td>
                             <td><?= $views["tanggal_kembali"] ?></td>
                             </tr>
-                            <?php endforeach ?>
-                            
                         </tbody>
+                        <?php endforeach ?>
                         </table>
                 </div>
             </div>

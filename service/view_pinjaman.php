@@ -7,13 +7,8 @@ require_once __DIR__ . "./../models/database.php";
 function viewData()
 {
     global $db;
-    $views = [];
     $data = mysqli_query($db, "SELECT * FROM peminjaman");
-    while($row = mysqli_fetch_assoc($data))
-    {
-        $views[] = $row;
-        return $views;
-    }
+    return $data;
 }
 
 function viewPinjam()
