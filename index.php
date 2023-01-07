@@ -1,11 +1,10 @@
-<?php 
+<?php
 
 session_start();
 
 require_once __DIR__ . "./service/view_pinjaman.php";
 
-if(!isset($_SESSION["login"]))
-{
+if (!isset($_SESSION["login"])) {
     header("Location: login.php");
 }
 
@@ -15,6 +14,7 @@ if(!isset($_SESSION["login"]))
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,13 +25,14 @@ if(!isset($_SESSION["login"]))
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <title>Dashboard Peminjaman Barang</title>
 </head>
+
 <body>
-    
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-0">
-            <nav class="navbar navbar-light bg-dark">
-                <h3 class="text-light">Dashboard</h3>
+                <nav class="navbar navbar-light bg-dark">
+                    <h3 class="text-light">Dashboard</h3>
             </div>
         </div>
     </div>
@@ -68,29 +69,31 @@ if(!isset($_SESSION["login"]))
                     <table class="table table-striped">
                         <thead class="thead-dark text-center">
                             <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Nama</th>
-                            <th scope="col">Barang</th>
-                            <th scope="col">No Seri</th>
-                            <th scope="col">Tanggal Pinjam</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Tanggal Kembali</th>
+                                <th scope="col">No</th>
+                                <th scope="col">Nama</th>
+                                <th scope="col">Barang</th>
+                                <th scope="col">No Seri</th>
+                                <th scope="col">Tanggal Pinjam</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Tanggal Kembali</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
-                        <?php foreach($viewData as $views) : ?>
-                        <tbody class="text-center">
-                            <tr>
-                            <th scope="row"><?= $views["id"] ?></th>
-                            <td><?= $views["nama"] ?></td>
-                            <td><?= $views["jenis_barang"] ?></td>
-                            <td><?= $views["no_seri"] ?></td>
-                            <td><?= $views["tanggal_pinjam"] ?></td>
-                            <td><?= $views["status"] ?></td>
-                            <td><?= $views["tanggal_kembali"] ?></td>
-                            </tr>
-                        </tbody>
+                        <?php foreach ($viewData as $views) : ?>
+                            <tbody class="text-center">
+                                <tr>
+                                    <th scope="row"><?= $views["id"] ?></th>
+                                    <td><?= $views["nama"] ?></td>
+                                    <td><?= $views["jenis_barang"] ?></td>
+                                    <td><?= $views["no_seri"] ?></td>
+                                    <td><?= $views["tanggal_pinjam"] ?></td>
+                                    <td><?= $views["status"] ?></td>
+                                    <td><?= $views["tanggal_kembali"] ?></td>
+                                    <td><a href="edit-pinjam.php"><i class="fa-solid fa-pen-to-square"></i></a>  <a href="delete.php?id=<?= $views["id"] ?>"><i class="fa-solid fa-trash"></i></a></td>
+                                </tr>
+                            </tbody>
                         <?php endforeach ?>
-                        </table>
+                    </table>
                 </div>
             </div>
             <!-- end content -->
@@ -99,4 +102,5 @@ if(!isset($_SESSION["login"]))
 
     <script src="public/lib/bootstrap-4.6.2-dist/js/bootstrap.min.js"></script>
 </body>
+
 </html>

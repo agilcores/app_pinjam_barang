@@ -17,7 +17,7 @@ function viewPinjam()
     $data = mysqli_query($db, "SELECT * FROM peminjaman");
     $result = mysqli_num_rows($data);
     return $result;
-}
+} 
 
 function viewKembali()
 {
