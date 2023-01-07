@@ -9,6 +9,11 @@
     height: 100%;
 }
 
+.content
+{
+    height: 100%;
+}
+
 .side-text p
 {
     font-size: 15px;

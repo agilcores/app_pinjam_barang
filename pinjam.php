@@ -69,19 +69,19 @@ if(isset($_POST["submit"]))
                 <form method="post">
                     <div class="form-group">
                         <label for="nama">Masukkan Nama</label>
-                        <input type="text" class="form-control" id="nama" name="nama">
+                        <input type="text" class="form-control" id="nama" name="nama" required>
                     </div>
                     <div class="form-group">
                         <label for="barang">Masukkan Barang</label>
-                        <input type="text" class="form-control" id="barang" name="barang">
+                        <input type="text" class="form-control" id="barang" name="barang" required>
                     </div>
                     <div class="form-group">
                         <label for="no-seri">Masukkan no-seri</label>
-                        <input type="text" class="form-control" id="no-seri" name="no-seri">
+                        <input type="text" class="form-control" id="no-seri" name="no-seri" required>
                     </div>
                     <div class="form-group">
                         <label for="tanggal-pinjam">Masukkan tanggal-pinjam</label>
-                        <input type="date" class="form-control" id="tanggal-pinjam" name="tanggal-pinjam">
+                        <input type="date" class="form-control" id="tanggal-pinjam" name="tanggal-pinjam" required>
                     </div>
                     <div class="form-group">
                         <label for="status">Masukkan status</label>

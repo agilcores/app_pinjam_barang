@@ -1,13 +1,11 @@
 <?php
 
 session_start();
-
-require_once __DIR__ . "./service/view_pinjaman.php";
-
 if (!isset($_SESSION["login"])) {
     header("Location: login.php");
 }
 
+require_once __DIR__ . "./service/view_pinjaman.php";
 
 
 ?>
@@ -36,9 +34,10 @@ if (!isset($_SESSION["login"])) {
             </div>
         </div>
     </div>
+    
 
     <div class="container-fluid">
-        <div class="row">
+        <div class="row h-100">
             <!-- side bar -->
             <div class="sidebar col-md-2 bg-dark">
                 <div class="container">
@@ -56,6 +55,7 @@ if (!isset($_SESSION["login"])) {
                         <hr style="background-color: white">
                         <p class="text-light mt-3">Belum Kembali : <?= viewBelumKembali(); ?></p>
                         <hr style="background-color: white">
+                        <a href="logout.php"><p class="text-right text-white">logout</p></a>
                     </div>
                 </div>
             </div>
@@ -79,17 +79,18 @@ if (!isset($_SESSION["login"])) {
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
+                        <?php $num = 1; ?>
                         <?php foreach ($viewData as $views) : ?>
                             <tbody class="text-center">
                                 <tr>
-                                    <th scope="row"><?= $views["id"] ?></th>
+                                    <th scope="row"><?= $num++; ?></th>
                                     <td><?= $views["nama"] ?></td>
                                     <td><?= $views["jenis_barang"] ?></td>
                                     <td><?= $views["no_seri"] ?></td>
                                     <td><?= $views["tanggal_pinjam"] ?></td>
                                     <td><?= $views["status"] ?></td>
                                     <td><?= $views["tanggal_kembali"] ?></td>
-                                    <td><a href="edit-pinjam.php"><i class="fa-solid fa-pen-to-square"></i></a>  <a href="delete.php?id=<?= $views["id"] ?>"><i class="fa-solid fa-trash"></i></a></td>
+                                    <td><a href="edit-pinjam.php?id=<?= $views["id"] ?>"><i class="fa-solid fa-pen-to-square"></i></a>  <a href="delete.php?id=<?= $views["id"] ?>"><i class="fa-solid fa-trash"></i></a></td>
                                 </tr>
                             </tbody>
                         <?php endforeach ?>
